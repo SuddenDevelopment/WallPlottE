@@ -22,6 +22,7 @@ so far all materials are under $100 besides 3d printed parts.
 - Servo hat for raspberry pi zero: https://www.adafruit.com/product/3416
 - 2 continuos rotation servos
 - 3mm ball chain: 100 feet / 30 meters
+- nylon load bearing balls to reduce dragging across surface
 
 We are attempting to put the motors in the gondula and allow for it to hold multiple tools and rotate them in place
 
