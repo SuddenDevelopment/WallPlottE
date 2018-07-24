@@ -28,3 +28,7 @@ so far all materials are under $100 besides 3d printed parts.
 We are attempting to put the motors in the gondula and allow for it to hold multiple tools and rotate them in place
 
 The platform is a disc 200m in diameter with some standard holes around it, and a cutout in the middle for tools. This will hopefully allow for modular development of different parts and configurations at once.
+
+# Current Status
+
+![](./Image from iOS (2).jpg)
