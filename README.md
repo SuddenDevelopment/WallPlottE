@@ -31,4 +31,4 @@ The platform is a disc 200m in diameter with some standard holes around it, and 
 
 # Current Status
 
-![](./Image from iOS (2).jpg)
+![pic]('./Image from iOS (2).jpg')
