@@ -23,6 +23,7 @@ so far all materials are under $100 besides 3d printed parts.
 - 2 continuos rotation servos: https://smile.amazon.com/RioRand-MG995-Metal-Speed-Torque/dp/B00M8TXSBO/
 - 3mm ball chain: 100 feet / 30 meters: https://smile.amazon.com/dp/B005GPS2U4/
 - nylon load bearing balls to reduce dragging across surface: https://www.amazon.com/gp/product/B07BM1XRZQ/
+- skate bearings: https://smile.amazon.com/TRIXES-Frictionless-Sealed-Skateboard-Bearings/dp/B00WXDAUQG/
 - Python control through web interface
 
 We are attempting to put the motors in the gondula and allow for it to hold multiple tools and rotate them in place
