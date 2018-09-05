@@ -1,3 +1,19 @@
+/*
+
+cylon for pi: 
+	https://cylonjs.com/documentation/platforms/raspberry-pi/
+servo board: 
+	https://cylonjs.com/documentation/drivers/pca9685/
+servo:  
+	https://cylonjs.com/documentation/drivers/continuous-servo/
+sensor board:
+ 	https://github.com/alphacharlie/node-ads1x15
+
+*/
+
+var ads1x15 = require('node-ads1x15');  
+var chip = 1; //0 for ads1015, 1 for ads1115  
+var adc = new ads1x15(chip); 
 var Cylon = require("cylon");
 
 Cylon.robot({
@@ -15,23 +31,34 @@ Cylon.robot({
 
     work: function(my) {
 
+    	var channel = 0; //channel 0, 1, 2, or 3...  
+		var samplesPerSecond = '250'; // see index.js for allowed values for your chip  
+		var progGainAmp = '4096'; // see index.js for allowed values for your chip   
+		var reading  = 0;  
+ 
+		  adc.readADCSingleEnded(channel, progGainAmp, samplesPerSecond, function(err, strData){   
+		    if(err){ throw err; } 
+		    console.log(strData);
+		  });
+
+    	//servo stuff
         var min = 700;
         var max = 1100;
-
-        // set the frequency to 60hz
         my.pca9685.setPWMFreq(60);
-
-        // rotate to and hold the minium position
         my.pca9685.setPWM(0, 0, min);
-
-        after((5).seconds(), function() {
-            // rotate to and hold the maxium position
-            my.pca9685.setPWM(0, 0, max);
-        });
-
-        after((10).seconds(), function() {
-            // reset and stop all outputs
-            my.pca9685.stop();
-        });
+        adc.readADCSingleEnded(channel, progGainAmp, samplesPerSecond, function(err, strData){   
+		    if(err){ throw err; } 
+		    console.log(strData);
+		  });
+        after((5).seconds(), function() { my.pca9685.setPWM(0, 0, max);});
+        adc.readADCSingleEnded(channel, progGainAmp, samplesPerSecond, function(err, strData){   
+		    if(err){ throw err; } 
+		    console.log(strData);
+		  });
+        after((10).seconds(), function(){ my.pca9685.stop(); });
+        adc.readADCSingleEnded(channel, progGainAmp, samplesPerSecond, function(err, strData){   
+		    if(err){ throw err; } 
+		    console.log(strData);
+		  });
     }
 }).start();
