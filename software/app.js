@@ -46,19 +46,19 @@ Cylon.robot({
         var max = 1100;
         my.pca9685.setPWMFreq(60);
         my.pca9685.setPWM(0, 0, min);
-        adc.readADCSingleEnded(channel, progGainAmp, samplesPerSecond, function(err, strData){   
+        if(!adc.busy){adc.readADCSingleEnded(channel, progGainAmp, samplesPerSecond, function(err, strData){   
 		    if(err){ throw err; } 
 		    console.log(strData);
-		  });
+		  });}
         after((5).seconds(), function() { my.pca9685.setPWM(0, 0, max);});
-        adc.readADCSingleEnded(channel, progGainAmp, samplesPerSecond, function(err, strData){   
+        if(!adc.busy){adc.readADCSingleEnded(channel, progGainAmp, samplesPerSecond, function(err, strData){   
 		    if(err){ throw err; } 
 		    console.log(strData);
-		  });
+		  });}
         after((10).seconds(), function(){ my.pca9685.stop(); });
-        adc.readADCSingleEnded(channel, progGainAmp, samplesPerSecond, function(err, strData){   
+        if(!adc.busy){adc.readADCSingleEnded(channel, progGainAmp, samplesPerSecond, function(err, strData){   
 		    if(err){ throw err; } 
 		    console.log(strData);
-		  });
+		  });}
     }
 }).start();
